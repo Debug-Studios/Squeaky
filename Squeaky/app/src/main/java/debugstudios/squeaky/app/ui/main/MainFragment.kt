@@ -30,7 +30,6 @@ class MainFragment : Fragment() {
         lifecycle.addObserver(viewModel)
         viewModel.getTestString().observe(this, Observer { test ->  Log.d("TEST", test) })
 
-        viewModel.someLongRunningFunction()
     }
 
 }

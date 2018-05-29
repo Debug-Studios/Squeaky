@@ -4,17 +4,29 @@ import android.arch.lifecycle.LifecycleObserver
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
+import dagger.Component
+import javax.inject.Inject
 
 class MainViewModel : ViewModel(), LifecycleObserver {
-    val testString = MutableLiveData<String>()
+    @Inject lateinit var info : Info
+    private var testString = MutableLiveData<String>()
 
-    fun someLongRunningFunction() {
-        testString.value = "Test"
+    init {
+        DaggerMagicBox.create().inject(this)
+        testString.value = info.text
     }
 
     fun getTestString(): LiveData<String>{
         return testString
     }
-
-
 }
+
+class Info @Inject constructor(){
+    val text = "Hello String"
+}
+
+@Component
+interface MagicBox{
+    fun inject(app: MainViewModel)
+}
+

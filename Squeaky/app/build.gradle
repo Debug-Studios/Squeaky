@@ -35,10 +35,14 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'com.android.support.constraint:constraint-layout:1.1.0'
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    //Dagger
+    def dagger_version="2.16"
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+
     // Android Jetpack
     def lifecycle_version = "1.1.1"
     def room_version = "1.1.0"
-    def nav_version = "1.0.0-alpha01"
 
     // ViewModel and LifeCycle
     implementation "android.arch.lifecycle:extensions:$lifecycle_version"
