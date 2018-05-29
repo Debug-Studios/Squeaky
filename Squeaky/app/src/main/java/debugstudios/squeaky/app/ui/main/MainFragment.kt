@@ -1,8 +1,10 @@
 package debugstudios.squeaky.app.ui.main
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,8 +25,12 @@ class MainFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
+        lifecycle.addObserver(viewModel)
+        viewModel.getTestString().observe(this, Observer { test ->  Log.d("TEST", test) })
+
+        viewModel.someLongRunningFunction()
     }
 
 }
