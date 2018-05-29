@@ -1,7 +1,7 @@
 package debugstudios.squeaky.feature
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
 import debugstudios.squeaky.feature.ui.start.StartFragment
 
 class StartActivity : AppCompatActivity() {
