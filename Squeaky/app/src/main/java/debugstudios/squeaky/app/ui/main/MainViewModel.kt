@@ -9,7 +9,7 @@ import javax.inject.Inject
 
 class MainViewModel : ViewModel(), LifecycleObserver {
     @Inject lateinit var info : Info
-    private var testString = MutableLiveData<String>()
+    var testString = MutableLiveData<String>()
 
     init {
         DaggerMagicBox.create().inject(this)

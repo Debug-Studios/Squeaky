@@ -6,6 +6,10 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 'android-P'
 
+    dataBinding{
+        enabled=true
+    }
+
 
 
     defaultConfig {
